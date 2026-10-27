@@ -13,12 +13,9 @@ import { Journey } from './sections/Journey';
 import { FAQ } from './sections/FAQ';
 import { FinalCTA } from './sections/FinalCTA';
 
-import { ErrorBoundary } from './components/ErrorBoundary';
-
 function App() {
   return (
-    <ErrorBoundary>
-      <div className="relative min-h-screen bg-[#070814] text-[#F7F5FF] overflow-x-clip selection:bg-[#1fe0a0]/30 selection:text-[#1fe0a0]">
+    <div className="relative min-h-screen bg-[#070814] text-[#F7F5FF] overflow-x-clip selection:bg-[#1fe0a0]/30 selection:text-[#1fe0a0]">
       <div className="grid-overlay" aria-hidden="true" />
       <div className="noise-overlay" aria-hidden="true" />
 
@@ -43,7 +40,6 @@ function App() {
         <Footer />
       </div>
     </div>
-    </ErrorBoundary>
   );
 }
 

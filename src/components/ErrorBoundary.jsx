@@ -1,6 +1,6 @@
-import React from 'react';
+import { Component } from 'react';
 
-export class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -11,18 +11,16 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+    console.error('ErrorBoundary caught:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      if (this.props.fallback) {
-        return this.props.fallback;
-      }
       return (
-        <div className="p-8 text-center text-white bg-black/50 rounded-2xl border border-red-500/30 m-4">
-          <h3 className="text-xl font-bold text-red-400 mb-2">Section temporarily unavailable</h3>
-          <p className="text-sm text-gray-400">Please refresh or explore the other sections.</p>
+        <div className="p-8 text-white bg-red-950/90 rounded-2xl border border-red-500 m-4 font-mono text-xs text-left">
+          <h3 className="text-base font-bold text-red-300 mb-2">Component Error:</h3>
+          <p className="text-yellow-200 mb-2">{String(this.state.error?.message || this.state.error)}</p>
+          <pre className="text-gray-300 whitespace-pre-wrap text-[11px] max-h-60 overflow-auto">{this.state.error?.stack}</pre>
         </div>
       );
     }
