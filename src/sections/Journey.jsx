@@ -26,7 +26,7 @@ export function Journey() {
 
         <div className="relative max-w-5xl mx-auto mt-14">
           <div className="space-y-10">
-            {eventData.journey.map((step, i) => {
+            {(eventData.journey || []).map((step, i) => {
               const Icon = stepIcons[step.step] || Code2;
               return (
                 <Reveal key={step.step} delay={i * 0.06}>

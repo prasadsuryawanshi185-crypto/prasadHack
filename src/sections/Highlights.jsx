@@ -20,7 +20,7 @@ export function Highlights() {
         />
 
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
-          {eventData.highlights.map((item, i) => (
+          {(eventData.highlights || []).map((item, i) => (
             <Reveal key={item.code} delay={i * 0.06} y={20}>
               <article className="group relative h-full rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#1fe0a0]/40 p-7 sm:p-8 transition-all duration-300 shadow-xl overflow-hidden flex flex-col justify-between">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2db7ff]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

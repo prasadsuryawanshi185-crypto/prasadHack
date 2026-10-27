@@ -151,7 +151,7 @@ export function Challenges() {
   const [activeTrack, setActiveTrack] = useState('novice');
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const items = activeTrack === 'novice' ? eventData.noviceTracks : eventData.expertTracks;
+  const items = (activeTrack === 'novice' ? eventData.noviceTracks : eventData.expertTracks) || [];
 
   return (
     <section

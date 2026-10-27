@@ -29,7 +29,7 @@ export function Organizers() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {eventData.organizers.slice(0, 3).map((org, i) => (
+            {(eventData.organizers || []).slice(0, 3).map((org, i) => (
               <Reveal key={org.name} delay={i * 0.08}>
                 <div className="relative group rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#2db7ff]/50 p-6 text-center transition-all duration-300 shadow-xl">
                   {/* Avatar Monogram */}
@@ -72,7 +72,7 @@ export function Organizers() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {eventData.organizers.slice(3).map((lead, i) => (
+            {(eventData.organizers || []).slice(3).map((lead, i) => (
               <Reveal key={lead.name} delay={0.2 + i * 0.08}>
                 <div className="relative group rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#1fe0a0]/50 p-6 text-center transition-all duration-300 shadow-xl">
                   {/* Avatar Monogram */}

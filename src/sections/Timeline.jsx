@@ -29,7 +29,7 @@ export function Timeline() {
 
           {/* Timeline Nodes */}
           <div className="space-y-8 sm:space-y-12">
-            {eventData.timeline.map((step, idx) => {
+            {(eventData.timeline || []).map((step, idx) => {
               const isEven = idx % 2 === 0;
               const isCompleted = step.status === 'completed';
 

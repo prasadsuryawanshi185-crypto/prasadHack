@@ -27,7 +27,7 @@ export function Glimpses() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">
-          {eventData.glimpses.map((photo, i) => (
+          {(eventData.glimpses || []).map((photo, i) => (
             <Reveal key={photo.url} delay={i * 0.08}>
               <div
                 onClick={() => setSelectedPhoto(photo)}

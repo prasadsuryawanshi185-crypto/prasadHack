@@ -119,7 +119,7 @@ export function Sponsors() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {eventData.sponsorshipTiers.map((tier, i) => (
+          {(eventData.sponsorshipTiers || []).map((tier, i) => (
             <Reveal key={tier.tier} delay={i * 0.08}>
               <div className="relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#2db7ff]/40 p-7 h-full flex flex-col justify-between transition-all duration-300 shadow-xl">
                 <div>

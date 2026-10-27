@@ -82,8 +82,9 @@ export function FAQ() {
   const [category, setCategory] = useState('all');
 
   const filtered = useMemo(() => {
-    if (category === 'all') return eventData.faqs;
-    return eventData.faqs.filter((f) => {
+    const list = eventData.faqs || [];
+    if (category === 'all') return list;
+    return list.filter((f) => {
       if (category === 'eligibility') return f.category === 'eligibility' || f.category === 'tracks';
       if (category === 'fees') return f.category === 'fees' || f.category === 'logistics' || f.category === 'teams';
       return f.category === category;

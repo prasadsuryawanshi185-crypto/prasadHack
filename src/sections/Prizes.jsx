@@ -110,7 +110,7 @@ export function Prizes() {
   const [activeTrack, setActiveTrack] = useState('expert');
   const [selectedAward, setSelectedAward] = useState(null);
 
-  const podiums = activeTrack === 'expert' ? eventData.prizesData.expert : eventData.prizesData.novice;
+  const podiums = (activeTrack === 'expert' ? eventData.prizesData?.expert : eventData.prizesData?.novice) || [];
 
   return (
     <section id="prizes" aria-label="Prizes and Rewards" className="relative py-28 sm:py-36 overflow-hidden">
