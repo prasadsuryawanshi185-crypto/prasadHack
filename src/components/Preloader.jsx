@@ -127,17 +127,17 @@ export function Preloader({ onComplete }) {
       </div>
 
       {/* Loading indicator */}
-      <div className="w-48 h-1 bg-white/[0.08] rounded-full overflow-hidden">
+      <div className="w-52 h-1.5 bg-white/[0.08] rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-[#7547e8] to-[#315bff] rounded-full"
+          className="h-full bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] rounded-full"
           animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.3, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
         />
       </div>
 
       {step > 0 && (
-        <div className="mt-4 font-mono text-[10px] text-[#5c6673] tracking-[0.2em] uppercase">
-          {progress}% loaded
+        <div className="mt-4 font-mono text-[10px] text-[#1fe0a0] tracking-[0.2em] uppercase font-bold">
+          {Math.round(progress)}% loaded
         </div>
       )}
     </div>

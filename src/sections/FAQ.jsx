@@ -4,29 +4,30 @@ import { eventData } from '../data/event';
 import { SectionHeading } from '../components/SectionTag';
 import { Reveal } from '../components/Reveal';
 import { EASE_OUT_EXPO } from '../lib/easing';
-import { ChevronDown, Mail, HelpCircle } from 'lucide-react';
+import { ChevronDown, Mail, HelpCircle, Phone, Sparkles } from 'lucide-react';
 
 const categories = [
-  { id: 'all', label: 'All' },
+  { id: 'all', label: 'All Questions' },
   { id: 'general', label: 'General' },
-  { id: 'tracks', label: 'Tracks' },
-  { id: 'rules', label: 'Rules' },
-  { id: 'logistics', label: 'Logistics' },
+  { id: 'eligibility', label: 'Eligibility & Tracks' },
+  { id: 'fees', label: 'Fees & Logistics' },
+  { id: 'rules', label: 'Rules & Code' },
 ];
 
-function FaqItem({ item, index }) {
-  const [open, setOpen] = useState(index === 0);
+function FaqItem({ item, index, defaultOpen }) {
+  const [open, setOpen] = useState(defaultOpen);
   const contentId = `faq-c-${index}`;
   const headerId = `faq-h-${index}`;
 
   return (
     <div
-      className={`relative rounded-sm border transition-colors duration-500 overflow-hidden group ${
-        open ? 'border-[#7547e8]/30 bg-[rgba(117,71,232,0.03)]' : 'hairline bg-white/[0.015] hover:border-white/15'
+      className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${
+        open
+          ? 'border-[#1fe0a0]/40 bg-white/[0.05] shadow-lg shadow-black/40'
+          : 'border-white/10 bg-white/[0.02] hover:border-white/20'
       }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#7547e8]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <h3 className="relative z-10">
+      <h3>
         <button
           id={headerId}
           type="button"
@@ -36,13 +37,23 @@ function FaqItem({ item, index }) {
           className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
         >
           <div className="flex items-center gap-3">
-            <HelpCircle className={`w-5 h-5 shrink-0 transition-colors duration-300 ${open ? 'text-[#7547e8]' : 'text-[#5c6673]'}`} />
-            <span className={`font-display font-semibold text-base sm:text-lg transition-colors duration-300 ${open ? 'text-[#7547e8]' : 'text-white'}`}>
+            <HelpCircle
+              className={`w-5 h-5 shrink-0 transition-colors duration-300 ${
+                open ? 'text-[#1fe0a0]' : 'text-[#8E89AA]'
+              }`}
+            />
+            <span
+              className={`font-display font-semibold text-base sm:text-lg transition-colors duration-300 ${
+                open ? 'text-[#1fe0a0]' : 'text-white'
+              }`}
+            >
               {item.question}
             </span>
           </div>
           <ChevronDown
-            className={`w-5 h-5 shrink-0 text-[#5c6673] transition-transform duration-500 ${open ? 'rotate-180 text-[#7547e8]' : ''}`}
+            className={`w-5 h-5 shrink-0 text-[#8E89AA] transition-transform duration-300 ${
+              open ? 'rotate-180 text-[#1fe0a0]' : ''
+            }`}
           />
         </button>
       </h3>
@@ -55,89 +66,113 @@ function FaqItem({ item, index }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: EASE_OUT_EXPO }}
+            transition={{ duration: 0.35, ease: EASE_OUT_EXPO }}
           >
-            <div className="relative z-10 px-5 sm:px-6 pb-6 text-sm sm:text-base text-[#929caa] leading-relaxed border-t hairline pt-4">
+            <div className="px-5 sm:px-6 pb-6 text-sm sm:text-base text-[#c7cfd9] leading-relaxed border-t border-white/10 pt-4">
               {item.answer}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7547e8]/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
     </div>
   );
 }
 
 export function FAQ() {
   const [category, setCategory] = useState('all');
-  const filtered = useMemo(
-    () => (category === 'all' ? eventData.faqs : eventData.faqs.filter((f) => f.category === category)),
-    [category]
-  );
+
+  const filtered = useMemo(() => {
+    if (category === 'all') return eventData.faqs;
+    return eventData.faqs.filter((f) => {
+      if (category === 'eligibility') return f.category === 'eligibility' || f.category === 'tracks';
+      if (category === 'fees') return f.category === 'fees' || f.category === 'logistics' || f.category === 'teams';
+      return f.category === category;
+    });
+  }, [category]);
 
   return (
     <section
       id="faq"
       aria-label="Frequently asked questions"
-      className="relative py-28 sm:py-40 overflow-hidden"
+      className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]"
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(49,91,255,0.04),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(45,183,255,0.06),transparent_60%)]"
       />
+
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 08"
-          kicker="Knowledge Base"
-          title="Questions,"
-          accent="answered."
-          description="Eligibility, rules, logistics."
+          kicker="Clarifications & Answers"
+          title="FREQUENTLY ASKED"
+          accent="QUESTIONS."
+          description="Everything you need to know about eligibility, team rules, evaluation, and facilities."
+          align="center"
         />
 
+        {/* Filter Tabs */}
         <Reveal delay={0.08}>
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-10 mt-8">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setCategory(cat.id)}
-                aria-pressed={category === cat.id}
-                className={`relative px-4 py-2 rounded-sm font-mono text-[11px] tracking-[0.16em] uppercase border transition-all duration-300 overflow-hidden ${
+                className={`px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase border transition-all duration-300 ${
                   category === cat.id
-                    ? 'bg-[#7547e8] text-[#05060b] border-[#7547e8] font-bold'
-                    : 'hairline text-[#929caa] hover:text-white hover:border-white/20'
+                    ? 'bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] text-black font-bold border-transparent shadow-md shadow-[#1fe0a0]/25'
+                    : 'bg-white/[0.03] text-[#8E89AA] hover:text-white border-white/10'
                 }`}
               >
-                <span className="relative z-10">{cat.label}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#7547e8]/10 via-transparent to-transparent" />
+                {cat.label}
               </button>
             ))}
           </div>
         </Reveal>
 
-        <div className="max-w-4xl space-y-3">
+        {/* FAQ Accordion List */}
+        <div className="max-w-4xl mx-auto space-y-4">
           {filtered.map((item, i) => (
-            <Reveal key={item.question} delay={Math.min(i * 0.05, 0.3)} y={18}>
-              <FaqItem item={item} index={i} />
+            <Reveal key={item.question} delay={Math.min(i * 0.05, 0.3)}>
+              <FaqItem item={item} index={i} defaultOpen={i === 0} />
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={0.1}>
-          <div className="mt-12 max-w-4xl glass-panel rounded-sm p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="relative font-mono text-xs text-[#929caa] flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-[#7547e8]" />
-              <span className="text-white font-bold block mb-1">Unresolved questions?</span>
-              <a href={`mailto:${eventData.contactEmail}`} className="text-[#7547e8] hover:underline">
-                {eventData.contactEmail}
+        {/* Unresolved Questions Helpline Card */}
+        <Reveal delay={0.2}>
+          <div className="mt-14 max-w-4xl mx-auto rounded-2xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] border border-white/15 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div className="flex items-center gap-4 text-left">
+              <div className="p-3 rounded-xl bg-[#2db7ff]/10 text-[#2db7ff] border border-[#2db7ff]/30">
+                <HelpCircle className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-display font-bold text-lg text-white">
+                  Have more questions?
+                </h4>
+                <p className="text-xs sm:text-sm text-[#8E89AA] mt-0.5">
+                  Reach out to the WCE ACM organizing team directly.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${eventData.contactEmail}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#2db7ff]" />
+                <span>{eventData.contactEmail}</span>
+              </a>
+
+              <a
+                href="tel:+918459039945"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-black bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] hover:brightness-110 transition-all shadow-md"
+              >
+                <Phone className="w-4 h-4 text-black" />
+                <span>Call Coordinator</span>
               </a>
             </div>
-            <a
-              href={`mailto:${eventData.contactEmail}?subject=${encodeURIComponent('WCE Hackathon 2027 — Query')}`}
-              className="btn-secondary shrink-0 !py-3"
-            >
-              <Mail className="w-4 h-4" />
-              Contact Desk
-            </a>
           </div>
         </Reveal>
       </div>

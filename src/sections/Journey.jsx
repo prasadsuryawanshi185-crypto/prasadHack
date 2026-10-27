@@ -1,7 +1,7 @@
 import { eventData } from '../data/event';
 import { SectionHeading } from '../components/SectionTag';
 import { Reveal } from '../components/Reveal';
-import { Search, GitBranch, Code2, CheckCircle, Mic } from 'lucide-react';
+import { Search, GitBranch, Code2, CheckCircle, Mic, ArrowRight } from 'lucide-react';
 
 const stepIcons = {
   '01': Search,
@@ -11,103 +11,74 @@ const stepIcons = {
   '05': Mic,
 };
 
-const stepColors = {
-  '01': '#7547e8',
-  '02': '#315bff',
-  '03': '#27dccb',
-  '04': '#b9f36b',
-  '05': '#7547e8',
-};
-
-function StepIcon({ step, color }) {
-  const Icon = stepIcons[step];
-  return <Icon className="w-6 h-6" style={{ color }} strokeWidth={1.5} />;
-}
-
 export function Journey() {
   return (
-    <section id="journey" aria-label="Event journey" className="relative section-pad overflow-hidden">
+    <section id="journey" aria-label="Event journey" className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(117,71,232,0.04),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(45,183,255,0.05),transparent_60%)]"
       />
 
       <div className="container-custom relative z-10">
         <SectionHeading
-          index="SEC // 07"
-          kicker="The Process"
-          title="From idea"
-          accent="to arena."
-          description="Five stages — discovery, architecture, build, checkpoints, demo."
+          index="SEC // 07.5"
+          kicker="Engineering Lifecycle"
+          title="FROM IDEA"
+          accent="TO ARENA."
+          description="Five stages defining the developer experience — discovery, blueprint, sprint, audit, and demo."
+          align="center"
         />
 
-        <div className="relative">
-          <div
-            aria-hidden="true"
-            className="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-[#7547e8]/50 to-transparent"
-          />
-
-          <div className="space-y-12">
-            {eventData.journey.map((step, i) => (
-              <Reveal key={step.step} delay={i * 0.05} x={-20} y={0}>
-                <div className="relative pl-10 sm:pl-14 group">
-                  <span
-                    aria-hidden="true"
-                    className={`absolute left-0 top-2 w-[24px] h-[24px] rounded-full border-2 transition-all duration-500 flex items-center justify-center ${
-                      i === 0
-                        ? `border-[${stepColors[step.step]}] bg-[${stepColors[step.step]}] shadow-[0_0_16px_${stepColors[step.step]}]`
-                        : 'border-[#1b2430] bg-[#07090d] group-hover:border-[#7547e8]/60'
-                    }`}
-                  >
-                    <span className="font-display text-[10px] font-semibold text-[#05060b]">
-                      {step.step}
-                    </span>
-                  </span>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-                    <div className="lg:col-span-5 relative">
-                      <div className="relative sticky top-24">
-                        <div className="w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center group-hover:border-current/30 transition-all duration-500 mb-6 shrink-0" style={{ background: `linear-gradient(135deg, ${stepColors[step.step]}1a, ${stepColors[step.step]}0d)` }}>
-                          <StepIcon step={step.step} color={stepColors[step.step]} />
+        <div className="relative max-w-5xl mx-auto mt-14">
+          <div className="space-y-10">
+            {eventData.journey.map((step, i) => {
+              const Icon = stepIcons[step.step] || Code2;
+              return (
+                <Reveal key={step.step} delay={i * 0.06}>
+                  <div className="relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#2db7ff]/40 p-6 sm:p-8 transition-all duration-300 shadow-xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                      {/* Left: Step Number, Title & Icon */}
+                      <div className="lg:col-span-5 flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#2db7ff]/20 to-[#1fe0a0]/20 border border-white/10 flex items-center justify-center shrink-0 text-[#1fe0a0]">
+                          <Icon className="w-6 h-6" />
                         </div>
-                        <span className="font-mono text-[11px] text-[#7547e8] tracking-[0.2em] block mb-2">
-                          STEP {step.step}
-                        </span>
-                        <h3 className="font-display font-semibold text-2xl sm:text-3xl text-[#f2f5f7] leading-tight mb-3">
-                          {step.title}
-                        </h3>
-                        <p className="font-mono text-[11px] text-[#5c6673] tracking-[0.14em] uppercase">
-                          {step.subtitle}
-                        </p>
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-mono text-xs uppercase tracking-widest text-[#2db7ff]">
+                              STAGE // 0{step.step}
+                            </span>
+                          </div>
+                          <h3 className="font-display font-bold text-2xl text-white">
+                            {step.title}
+                          </h3>
+                          <p className="font-mono text-[10px] text-[#8E89AA] tracking-wider uppercase mt-1">
+                            {step.subtitle}
+                          </p>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="lg:col-span-7">
-                      <div className="relative glass-panel tech-corners rounded-sm p-6 sm:p-7 h-full group overflow-hidden" style={{ '--step-color': stepColors[step.step] }}>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[var(--step-color)]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="relative z-10">
-                          <p className="text-[#929caa] leading-relaxed max-w-2xl mb-5">{step.description}</p>
-                          <ul className="space-y-2.5 pt-4 border-t hairline">
-                            {step.keyOutputs.map((out) => (
-                              <li
-                                key={out}
-                                className="flex items-start gap-3 text-sm text-[#c7cfd9] group-hover:text-[#f2f5f7] transition-colors"
-                              >
-                                <span className="w-5 h-5 shrink-0 flex items-center justify-center rounded bg-[#7547e8]/10 text-[#7547e8]">
-                                  <CheckCircle className="w-3 h-3" strokeWidth={2.5} />
-                                </span>
-                                <span className="leading-relaxed">{out}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      {/* Right: Description & Key Outputs */}
+                      <div className="lg:col-span-7">
+                        <p className="text-sm text-[#c7cfd9] leading-relaxed mb-4">
+                          {step.description}
+                        </p>
+                        <div className="pt-3 border-t border-white/10 flex flex-wrap gap-2">
+                          {step.keyOutputs.map((out) => (
+                            <span
+                              key={out}
+                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] border border-white/5 font-mono text-[11px] text-[#1fe0a0]"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#1fe0a0]" />
+                              <span>{out}</span>
+                            </span>
+                          ))}
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-current/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" style={{ opacity: 0.5 }} />
                       </div>
                     </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </div>

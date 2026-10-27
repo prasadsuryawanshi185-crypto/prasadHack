@@ -1,134 +1,170 @@
 import { eventData } from '../data/event';
 import { SectionHeading } from '../components/SectionTag';
 import { Reveal } from '../components/Reveal';
-import { ArrowUpRight, ShieldCheck, Building2 } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Building2, ExternalLink } from 'lucide-react';
 
 export function Sponsors() {
   return (
-    <section id="sponsors" aria-label="Sponsors" className="relative section-pad overflow-hidden">
+    <section id="sponsors" aria-label="Sponsors & Partners" className="relative py-28 sm:py-36 overflow-hidden">
+      {/* Background glow */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(39,220,203,0.04),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(45,183,255,0.06),transparent_60%)]"
       />
+
       <div className="container-custom relative z-10">
         <SectionHeading
-          index="SEC // 06"
-          kicker="Ecosystem"
-          title="Partner with the"
-          accent="arena."
-          description="Sponsorship tiers for 2027 are open."
+          index="SEC // 07"
+          kicker="Ecosystem Partners"
+          title="SPONSORS &"
+          accent="ALLIANCES."
+          description="Powered by industry leaders and our institutional technical ecosystem."
+          align="center"
         />
 
-        {/* Sponsorship tiers - unique card design */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+        {/* Featured Powered By Partner */}
+        <Reveal>
+          <div className="max-w-4xl mx-auto mt-12 mb-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/15 backdrop-blur-xl shadow-2xl text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[#2db7ff] to-transparent" />
+            
+            <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#2db7ff] block mb-6">
+              OFFICIAL PLATFORM & REGISTRATION PARTNER
+            </span>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-6">
+              <a
+                href={eventData.sponsors.poweredBy.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2db7ff]/50 transition-all"
+              >
+                <img
+                  src={eventData.sponsors.poweredBy.logo}
+                  alt={eventData.sponsors.poweredBy.name}
+                  className="h-16 sm:h-20 object-contain rounded-xl filter drop-shadow group-hover:scale-105 transition-transform"
+                />
+              </a>
+
+              <div className="text-left max-w-sm">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="font-display font-bold text-2xl text-white">
+                    {eventData.sponsors.poweredBy.name}
+                  </h3>
+                  <ShieldCheck className="w-5 h-5 text-[#1fe0a0]" />
+                </div>
+                <div className="font-mono text-xs text-[#1fe0a0] mb-2">
+                  {eventData.sponsors.poweredBy.role}
+                </div>
+                <p className="text-xs text-[#8E89AA] leading-relaxed">
+                  Powering registrations, candidate shortlisting, and national developer outreach for WCE Hackathon.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href={eventData.sponsors.poweredBy.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-mono text-xs font-bold uppercase text-black bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] hover:brightness-110 shadow-lg shadow-[#1fe0a0]/20 transition-all"
+              >
+                <span>Visit Unstop Portal</span>
+                <ExternalLink className="w-4 h-4 text-black" />
+              </a>
+
+              <a
+                href="#register"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+              >
+                <span>Direct Pre-Registration</span>
+                <ArrowUpRight className="w-4 h-4 text-[#2db7ff]" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Previous Sponsor & Institutional Backing */}
+        <Reveal delay={0.1}>
+          <div className="max-w-4xl mx-auto mb-16 p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="w-20 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2 shrink-0">
+                <img
+                  src={eventData.sponsors.pastSponsor.logo}
+                  alt={eventData.sponsors.pastSponsor.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <div>
+                <div className="font-display font-bold text-lg text-white">
+                  {eventData.sponsors.pastSponsor.name}
+                </div>
+                <div className="font-mono text-xs text-[#2db7ff]">
+                  {eventData.sponsors.pastSponsor.role}
+                </div>
+                <div className="text-xs text-[#8E89AA] mt-1">
+                  {eventData.sponsors.pastSponsor.note}
+                </div>
+              </div>
+            </div>
+
+            <span className="font-mono text-xs text-[#1fe0a0] px-3 py-1.5 rounded-full bg-[#1fe0a0]/10 border border-[#1fe0a0]/25 shrink-0">
+              Verified Supporter
+            </span>
+          </div>
+        </Reveal>
+
+        {/* Sponsorship Tiers */}
+        <div className="text-center mb-8">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#1fe0a0]">
+            BECOME A SPONSOR
+          </span>
+          <h3 className="font-display font-bold text-2xl sm:text-3xl text-white mt-1">
+            2027 Partnership Tiers
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {eventData.sponsorshipTiers.map((tier, i) => (
-            <Reveal key={tier.tier} delay={i * 0.08} y={24}>
-              <article className="relative glass-panel tech-corners rounded-sm p-7 h-full flex flex-col group overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7547e8]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-[#7547e8] px-2.5 py-1 bg-[rgba(117,71,232,0.07)] border border-[rgba(117,71,232,0.2)] rounded-sm uppercase">
+            <Reveal key={tier.tier} delay={i * 0.08}>
+              <div className="relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#2db7ff]/40 p-7 h-full flex flex-col justify-between transition-all duration-300 shadow-xl">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[10px] tracking-wider text-[#2db7ff] px-2.5 py-1 rounded bg-[#2db7ff]/10 border border-[#2db7ff]/30 uppercase">
                       {tier.badge}
                     </span>
-                    <span className="status-dot pulse-dot" />
+                    <span className="w-2 h-2 rounded-full bg-[#1fe0a0] pulse-dot" />
                   </div>
-                  <h3 className="font-display font-semibold text-2xl text-[#f2f5f7] leading-tight mb-2">
+
+                  <h3 className="font-display font-bold text-2xl text-white mb-1">
                     {tier.tier}
                   </h3>
-                  <p className="font-mono text-[11px] text-[#7547e8] tracking-[0.16em] mt-2 uppercase mb-6">
+                  <div className="font-mono text-xs text-[#1fe0a0] mb-5">
                     {tier.status}
-                  </p>
-                  <ul className="space-y-3 flex-1">
+                  </div>
+
+                  <ul className="space-y-3 mb-6">
                     {tier.perks.map((perk) => (
-                      <li key={perk} className="flex items-start gap-3 text-sm text-[#c7cfd9]">
-                        <span className="w-5 h-5 shrink-0 flex items-center justify-center rounded bg-[#7547e8]/10 text-[#7547e8]">
-                          <Building2 className="w-3 h-3" strokeWidth={2} />
-                        </span>
+                      <li key={perk} className="flex items-start gap-2.5 text-xs text-[#c7cfd9]">
+                        <Building2 className="w-4 h-4 text-[#2db7ff] shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{perk}</span>
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={`mailto:${eventData.contactEmail}?subject=${encodeURIComponent(
-                      'WCE Hackathon 2027 — ' + tier.tier
-                    )}`}
-                    className="mt-7 pt-5 border-t hairline font-mono text-[11px] tracking-[0.18em] uppercase text-[#929caa] hover:text-[#7547e8] transition-colors flex items-center gap-2 group"
-                  >
-                    Request prospectus
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </a>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7547e8]/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </article>
+
+                <a
+                  href={`mailto:${eventData.contactEmail}?subject=${encodeURIComponent(
+                    'WCE Hackathon 2027 — Sponsorship Inquiry: ' + tier.tier
+                  )}`}
+                  className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-[#2db7ff] hover:text-white transition-colors"
+                >
+                  <span>Request Prospectus</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
             </Reveal>
           ))}
         </div>
-
-        {/* Past Partners - unique layout */}
-        <Reveal>
-          <div className="glass-panel rounded-sm p-8 sm:p-10">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 pb-6 border-b hairline">
-              <div>
-                <span className="font-mono text-[10px] text-[#7547e8] tracking-[0.22em] uppercase block mb-2">
-                  // Collaborative Legacy
-                </span>
-                <h4 className="font-display font-semibold text-2xl sm:text-3xl text-[#f2f5f7]">
-                  Past Ecosystem Partners
-                </h4>
-              </div>
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#5c6673] uppercase shrink-0">
-                Verified Collaborators
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {eventData.pastPartners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="relative panel-line rounded-sm p-6 flex items-center gap-6 group overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#7547e8]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10 flex items-center gap-6 w-full">
-                    {partner.logo ? (
-                      <div className="w-28 h-14 shrink-0 flex items-center justify-center bg-white/[0.03] border hairline rounded-sm p-3">
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          className="max-h-full max-w-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-28 h-14 shrink-0 flex items-center justify-center bg-white/[0.03] border hairline rounded-sm px-3">
-                        <span className="font-display font-semibold text-sm text-white text-center leading-tight">
-                          {partner.name}
-                        </span>
-                      </div>
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-display font-semibold text-lg text-[#f2f5f7] truncate">
-                          {partner.name}
-                        </span>
-                        <ShieldCheck className="w-4 h-4 text-[#27dccb] shrink-0" />
-                      </div>
-                      <div className="font-mono text-[11px] text-[#7547e8] tracking-wide mb-1">
-                        {partner.role}
-                      </div>
-                      <div className="text-xs text-[#5c6673] leading-relaxed">
-                        {partner.note}
-                      </div>
-                    </div>
-                    <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="w-5 h-5 text-[#7547e8]" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7547e8]/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
