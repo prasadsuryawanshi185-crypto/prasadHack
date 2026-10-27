@@ -18,26 +18,6 @@
     />
   </head>
   <body class="bg-[#070814] text-[#f2f5f7] selection:bg-[#00e5d4]/25 selection:text-[#00e5d4] overflow-x-hidden antialiased">
-    <script>
-      function showError(title, msg, stack) {
-        var box = document.getElementById('runtime-error-banner');
-        if (!box) {
-          box = document.createElement('div');
-          box.id = 'runtime-error-banner';
-          box.style.cssText = 'position:fixed;top:10px;left:10px;right:10px;z-index:9999999;background:#450a0a;border:2px solid #ef4444;color:#fef2f2;padding:16px;border-radius:12px;font-family:monospace;font-size:13px;max-height:80vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,0.8);';
-          document.body.appendChild(box);
-        }
-        box.innerHTML = '<strong style="color:#f87171;font-size:15px;">' + title + '</strong><br/><br/>' +
-          '<div style="color:#fde047;white-space:pre-wrap;">' + msg + '</div>' +
-          (stack ? '<pre style="color:#9ca3af;font-size:11px;white-space:pre-wrap;margin-top:10px;">' + stack + '</pre>' : '');
-      }
-      window.addEventListener('error', function(e) {
-        showError('JavaScript Runtime Error', e.message + ' (' + e.filename + ':' + e.lineno + ')', e.error ? e.error.stack : '');
-      });
-      window.addEventListener('unhandledrejection', function(e) {
-        showError('Unhandled Promise Rejection', String(e.reason?.message || e.reason), e.reason?.stack || '');
-      });
-    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
