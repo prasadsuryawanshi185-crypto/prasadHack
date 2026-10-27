@@ -65,11 +65,11 @@ export function Navbar() {
                 <span className="font-display font-bold text-sm sm:text-base tracking-wide text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2db7ff] group-hover:to-[#1fe0a0] transition-all">
                   WCE HACKATHON
                 </span>
-                <span className="px-1.5 py-0.2 rounded text-[10px] font-mono font-bold bg-[#1fe0a0]/15 text-[#1fe0a0] border border-[#1fe0a0]/30 hidden xs:inline-block">
+                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#1fe0a0]/15 text-[#1fe0a0] border border-[#1fe0a0]/30 hidden xs:inline-block">
                   2027
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-[#8E89AA] tracking-[0.16em] uppercase">
+              <span className="font-mono text-xs text-[#c7cfd9] tracking-wider uppercase font-medium">
                 WCE ACM Student Chapter
               </span>
             </div>
@@ -84,9 +84,9 @@ export function Navbar() {
               <a
                 key={item.id}
                 href={item.href}
-                className={`px-3.5 py-1.5 rounded-full font-mono text-[11px] tracking-[0.1em] uppercase shrink-0 transition-all duration-300 ${
+                className={`px-3.5 py-1.5 rounded-full font-mono text-xs tracking-wider uppercase shrink-0 transition-all duration-300 ${
                   active === item.id
-                    ? 'text-white bg-gradient-to-r from-[#2db7ff]/20 to-[#1fe0a0]/20 border border-[#2db7ff]/40 shadow-[0_0_12px_rgba(45,183,255,0.25)]'
+                    ? 'text-white bg-gradient-to-r from-[#2db7ff]/20 to-[#1fe0a0]/20 border border-[#2db7ff]/40 shadow-[0_0_12px_rgba(45,183,255,0.25)] font-semibold'
                     : 'text-[#8E89AA] hover:text-white hover:bg-white/[0.04]'
                 }`}
               >
@@ -181,7 +181,7 @@ export function Navbar() {
                 Register on Unstop
                 <ArrowUpRight className="w-4 h-4" />
               </a>
-              <div className="text-center font-mono text-[11px] text-[#5c6673]">
+              <div className="text-center font-mono text-xs text-[#8E89AA]">
                 Round 1 Entry is 100% Free · 24-Hour Offline Hackathon
               </div>
             </div>

@@ -7,11 +7,6 @@ export function Sponsors() {
   return (
     <section id="sponsors" aria-label="Sponsors & Partners" className="relative py-28 sm:py-36 overflow-hidden">
       {/* Background glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(45,183,255,0.06),transparent_60%)]"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 07"
@@ -129,7 +124,7 @@ export function Sponsors() {
               <div className="relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-[#2db7ff]/40 p-7 h-full flex flex-col justify-between transition-all duration-300 shadow-xl">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[10px] tracking-wider text-[#2db7ff] px-2.5 py-1 rounded bg-[#2db7ff]/10 border border-[#2db7ff]/30 uppercase">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-[#2db7ff] px-3 py-1 rounded-full bg-[#2db7ff]/10 border border-[#2db7ff]/30 uppercase">
                       {tier.badge}
                     </span>
                     <span className="w-2 h-2 rounded-full bg-[#1fe0a0] pulse-dot" />

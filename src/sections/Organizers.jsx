@@ -10,12 +10,6 @@ export function Organizers() {
       aria-label="Organizing Committee and Leadership"
       className="relative py-28 sm:py-36 overflow-hidden bg-[#050610]"
     >
-      {/* Background glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(45,183,255,0.06),transparent_70%)] blur-3xl"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 06"
@@ -48,7 +42,7 @@ export function Organizers() {
                     </span>
                   </div>
 
-                  <span className="inline-block font-mono text-[10px] text-[#2db7ff] tracking-wider uppercase px-2.5 py-0.5 rounded bg-[#2db7ff]/10 border border-[#2db7ff]/25 mb-2">
+                  <span className="inline-block font-mono text-xs font-semibold text-[#2db7ff] tracking-wider uppercase px-3 py-1 rounded-full bg-[#2db7ff]/10 border border-[#2db7ff]/25 mb-2">
                     {org.tag}
                   </span>
 
@@ -91,7 +85,7 @@ export function Organizers() {
                     </span>
                   </div>
 
-                  <span className="inline-block font-mono text-[10px] text-[#1fe0a0] tracking-wider uppercase px-2.5 py-0.5 rounded bg-[#1fe0a0]/10 border border-[#1fe0a0]/25 mb-2">
+                  <span className="inline-block font-mono text-xs font-semibold text-[#1fe0a0] tracking-wider uppercase px-3 py-1 rounded-full bg-[#1fe0a0]/10 border border-[#1fe0a0]/25 mb-2">
                     {lead.tag}
                   </span>
 

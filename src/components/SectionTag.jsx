@@ -4,7 +4,7 @@ export function SectionTag({ index, label }) {
   return (
     <Reveal>
       <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-[11px] text-[#66E8C3] tracking-[0.22em]">{index}</span>
+        <span className="font-mono text-xs font-semibold text-[#66E8C3] tracking-[0.22em]">{index}</span>
         <span className="h-px w-12 bg-gradient-to-r from-[#66E8C3] to-transparent" />
         <span className="tick-label">{label}</span>
       </div>

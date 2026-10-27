@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { eventData } from '../data/event';
 import { ArrowRight, MapPin, Sparkles, Terminal, Calendar, Trophy, Clock, Users } from 'lucide-react';
 import { EASE_OUT_EXPO } from '../lib/easing';
-import { HeroScene } from '../three/HeroScene';
+import { HeroHUD } from '../components/HeroHUD';
 
 function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
@@ -52,16 +52,16 @@ function CountdownTimer() {
         { label: 'Secs', value: timeLeft.seconds },
       ].map((unit, idx) => (
         <div key={unit.label} className="flex items-center gap-2 sm:gap-3">
-          <div className="flex flex-col items-center justify-center min-w-[56px] sm:min-w-[68px] h-16 sm:h-20 rounded-xl bg-white/[0.04] border border-white/10 backdrop-blur-md px-2 shadow-lg shadow-black/30">
-            <span className="font-mono text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] leading-none">
+          <div className="flex flex-col items-center justify-center min-w-[62px] sm:min-w-[76px] h-18 sm:h-22 rounded-2xl bg-white/[0.05] border border-white/15 backdrop-blur-md px-3 shadow-xl shadow-black/40">
+            <span className="font-mono text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] leading-none">
               {unit.value}
             </span>
-            <span className="font-mono text-[9px] sm:text-[10px] text-[#8E89AA] uppercase tracking-wider mt-1.5">
+            <span className="font-mono text-xs text-[#c7cfd9] uppercase tracking-wider mt-2 font-semibold">
               {unit.label}
             </span>
           </div>
           {idx < 3 && (
-            <span className="font-mono text-lg font-bold text-[#8E89AA]/40 -mt-2">:</span>
+            <span className="font-mono text-xl font-bold text-[#8E89AA]/50 -mt-2">:</span>
           )}
         </div>
       ))}
@@ -76,16 +76,6 @@ export function Hero() {
       aria-label="WCE Hackathon 2027"
       className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden pt-28 lg:pt-32 pb-12"
     >
-      {/* Background radial gradients */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 right-[-10%] w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle,rgba(45,183,255,0.15)_0%,transparent_70%)] blur-3xl z-[0]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(31,224,160,0.12)_0%,transparent_72%)] blur-3xl z-[0]"
-      />
-
       <div className="container-custom relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         {/* Left Column: Hero Text & CTAs */}
         <div className="lg:col-span-7 relative z-20">
@@ -94,14 +84,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.05] border border-white/15 backdrop-blur-md mb-6"
           >
-            <span className="w-2 h-2 rounded-full bg-[#1fe0a0] pulse-dot" />
-            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-[#c7cfd9]">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1fe0a0] pulse-dot" />
+            <span className="font-mono text-xs sm:text-sm tracking-wider uppercase text-[#c7cfd9] font-medium">
               WCE ACM Student Chapter Presents
             </span>
-            <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/20" />
-            <span className="hidden sm:inline-block font-mono text-[11px] text-[#2db7ff] tracking-wider">
+            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
+            <span className="hidden sm:inline-block font-mono text-xs sm:text-sm text-[#2db7ff] font-bold tracking-wider">
               VISION 2027
             </span>
           </motion.div>
@@ -137,8 +127,8 @@ export function Hero() {
             transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: 0.3 }}
             className="mt-8"
           >
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-[0.2em] uppercase text-[#8E89AA]">
-              <Clock className="w-3.5 h-3.5 text-[#1fe0a0]" />
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs sm:text-sm tracking-widest uppercase text-[#c7cfd9] font-semibold">
+              <Clock className="w-4 h-4 text-[#1fe0a0]" />
               <span>Hackathon Countdown</span>
             </div>
             <CountdownTimer />
@@ -152,8 +142,10 @@ export function Hero() {
             className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a
-              href="#register"
-              className="relative inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] hover:brightness-110 shadow-[0_0_25px_rgba(31,224,160,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+              href={eventData.unstopUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] hover:brightness-110 shadow-[0_0_25px_rgba(31,224,160,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <Sparkles className="w-4 h-4 text-black" />
               <span>Register on Unstop</span>
@@ -162,7 +154,7 @@ export function Hero() {
 
             <a
               href="#tracks"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-mono text-xs font-medium tracking-wider uppercase text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#2db7ff]/40 transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-medium tracking-wider uppercase text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#2db7ff]/40 transition-all duration-300"
             >
               <Terminal className="w-4 h-4 text-[#2db7ff]" />
               <span>View Problem Statements</span>
@@ -174,37 +166,29 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.55 }}
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs text-[#8E89AA]"
+            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs sm:text-sm text-[#c7cfd9]"
           >
             <span className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#2db7ff]" />
-              <span>WCE Sangli, Maharashtra</span>
+              <MapPin className="w-4 h-4 text-[#2db7ff]" />
+              <span className="font-medium">WCE Sangli, Maharashtra</span>
             </span>
             <span className="text-white/20">•</span>
             <span className="flex items-center gap-2">
-              <Calendar className="w-3.5 h-3.5 text-[#1fe0a0]" />
-              <span>March 20–21, 2027</span>
+              <Calendar className="w-4 h-4 text-[#1fe0a0]" />
+              <span className="font-medium">March 20–21, 2027</span>
             </span>
             <span className="text-white/20">•</span>
             <span className="flex items-center gap-2 text-[#1fe0a0]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1fe0a0]" />
-              <span>Round 1 Free Entry</span>
+              <span className="w-2 h-2 rounded-full bg-[#1fe0a0]" />
+              <span className="font-bold">Round 1 Free Entry</span>
             </span>
           </motion.div>
         </div>
 
-        {/* Right Column: 3D Scene */}
+        {/* Right Column: Interactive Developer Console */}
         <div className="lg:col-span-5 relative z-10 flex items-center justify-center">
-          <div className="relative w-full h-[360px] sm:h-[440px] lg:h-[540px] xl:h-[600px] rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-b from-white/[0.02] to-transparent shadow-2xl">
-            {/* Corner Indicators */}
-            <div className="absolute top-4 left-4 z-20 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8E89AA] bg-[#070814]/80 px-2.5 py-1 rounded-md border border-white/10 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1fe0a0] pulse-dot" />
-              <span>INTERACTIVE CORE</span>
-            </div>
-            <div className="absolute bottom-4 right-4 z-20 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8E89AA] bg-[#070814]/80 px-2.5 py-1 rounded-md border border-white/10 backdrop-blur-md">
-              24-HR CRUCIBLE
-            </div>
-            <HeroScene />
+          <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px]">
+            <HeroHUD />
           </div>
         </div>
       </div>
@@ -228,16 +212,16 @@ export function Hero() {
             return (
               <div
                 key={item.label}
-                className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors"
+                className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-colors"
               >
-                <div className={`p-2 rounded-lg bg-white/5 border border-white/10 ${item.color}`}>
-                  <Icon className="w-4 h-4" />
+                <div className={`p-2.5 rounded-xl bg-white/5 border border-white/10 ${item.color}`}>
+                  <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-display font-bold text-sm sm:text-base text-white leading-tight">
+                  <div className="font-display font-bold text-base sm:text-lg text-white leading-tight">
                     {item.value}
                   </div>
-                  <div className="font-mono text-[10px] text-[#8E89AA] uppercase tracking-wider">
+                  <div className="font-mono text-xs text-[#c7cfd9] uppercase tracking-wider mt-0.5 font-medium">
                     {item.label}
                   </div>
                 </div>

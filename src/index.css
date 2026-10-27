@@ -57,10 +57,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(1200px 800px at 80% -10%, rgba(116, 69, 166, 0.18), transparent 60%),
-    radial-gradient(900px 700px at 10% 110%, rgba(102, 232, 195, 0.12), transparent 65%),
-    var(--color-void);
+  background-color: #070814;
   color: var(--color-mist);
   min-height: 100vh;
   overflow-x: hidden;

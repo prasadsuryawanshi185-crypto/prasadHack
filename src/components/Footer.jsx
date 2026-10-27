@@ -22,12 +22,6 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-white/10 bg-[#05060e] overflow-hidden pt-16 pb-12">
-      {/* Background glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(45,183,255,0.08),transparent_70%)]"
-      />
-
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-14">
           {/* Brand Info */}

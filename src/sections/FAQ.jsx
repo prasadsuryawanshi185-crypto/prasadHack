@@ -96,11 +96,6 @@ export function FAQ() {
       aria-label="Frequently asked questions"
       className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(45,183,255,0.06),transparent_60%)]"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 08"

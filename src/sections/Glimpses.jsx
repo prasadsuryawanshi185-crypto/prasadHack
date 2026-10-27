@@ -15,12 +15,6 @@ export function Glimpses() {
       aria-label="Past Edition Glimpses"
       className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]"
     >
-      {/* Ambient background glows */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(31,224,160,0.06),transparent_70%)] blur-3xl"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 05"

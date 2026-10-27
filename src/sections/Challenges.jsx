@@ -107,7 +107,7 @@ function TrackModal({ item, onClose }) {
                 <div className="font-mono text-xs text-white font-semibold">
                   {item.modal.resources.label}
                 </div>
-                <div className="text-[11px] text-[#8E89AA]">
+                <div className="text-xs text-[#c7cfd9]">
                   Official document & evaluation guidelines
                 </div>
               </div>
@@ -159,19 +159,13 @@ export function Challenges() {
       aria-label="Hackathon Tracks & Problem Statements"
       className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]"
     >
-      {/* Background atmosphere */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(45,183,255,0.06),transparent_70%)] blur-3xl"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 02"
           kicker="Tracks & Challenges"
           title="CHOOSE YOUR"
           accent="DOMAIN."
-          description="Tailored challenge tiers engineered for both rising talent and seasoned builders."
+          description="Tailored challenge tiers engineered for both rising talent and seasoned developers."
           align="center"
         />
 
@@ -258,7 +252,7 @@ export function Challenges() {
                         />
                       </div>
                     )}
-                    <span className="font-mono text-[10px] text-[#1fe0a0] uppercase tracking-wider px-2 py-0.5 rounded bg-[#1fe0a0]/10 border border-[#1fe0a0]/25">
+                    <span className="font-mono text-xs text-[#1fe0a0] uppercase tracking-wider px-3 py-1 rounded-full bg-[#1fe0a0]/10 border border-[#1fe0a0]/25 font-bold">
                       {item.category}
                     </span>
                   </div>
@@ -269,18 +263,18 @@ export function Challenges() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-[#929caa] leading-relaxed line-clamp-3 mb-6">
+                  <p className="text-sm sm:text-base text-[#c7cfd9] leading-relaxed line-clamp-3 mb-6">
                     {item.description}
                   </p>
                 </div>
 
                 <div>
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded-md font-mono text-[10px] text-[#c7cfd9] bg-white/[0.04] border border-white/5"
+                        className="px-2.5 py-1 rounded-lg font-mono text-xs text-[#c7cfd9] bg-white/[0.05] border border-white/10 font-medium"
                       >
                         {tag}
                       </span>
@@ -288,7 +282,7 @@ export function Challenges() {
                   </div>
 
                   {/* Action Link */}
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#2db7ff] group-hover:text-white transition-colors">
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-sm font-mono text-[#2db7ff] group-hover:text-white transition-colors font-semibold">
                     <span className="tracking-wider uppercase">View Problem Dossier</span>
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>

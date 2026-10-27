@@ -14,11 +14,6 @@ const stepIcons = {
 export function Journey() {
   return (
     <section id="journey" aria-label="Event journey" className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(45,183,255,0.05),transparent_60%)]"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 07.5"
@@ -51,7 +46,7 @@ export function Journey() {
                           <h3 className="font-display font-bold text-2xl text-white">
                             {step.title}
                           </h3>
-                          <p className="font-mono text-[10px] text-[#8E89AA] tracking-wider uppercase mt-1">
+                          <p className="font-mono text-xs text-[#8E89AA] tracking-wider uppercase mt-1">
                             {step.subtitle}
                           </p>
                         </div>
@@ -66,7 +61,7 @@ export function Journey() {
                           {step.keyOutputs.map((out) => (
                             <span
                               key={out}
-                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] border border-white/5 font-mono text-[11px] text-[#1fe0a0]"
+                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] border border-white/5 font-mono text-xs text-[#1fe0a0] font-medium"
                             >
                               <span className="w-1 h-1 rounded-full bg-[#1fe0a0]" />
                               <span>{out}</span>

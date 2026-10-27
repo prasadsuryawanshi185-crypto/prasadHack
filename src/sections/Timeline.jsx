@@ -12,15 +12,6 @@ export function Timeline() {
       className="relative py-28 sm:py-36 overflow-hidden bg-[#050610]"
     >
       {/* Subtle ambient lighting */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(45,183,255,0.06),transparent_60%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(31,224,160,0.05),transparent_60%)]"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 03"
@@ -55,7 +46,7 @@ export function Timeline() {
                             <span>{step.date}</span>
                           </span>
 
-                          <span className="font-mono text-[10px] text-[#8E89AA] uppercase tracking-wider">
+                          <span className="font-mono text-xs text-[#8E89AA] uppercase tracking-wider font-medium">
                             STAGE // 0{step.id}
                           </span>
                         </div>

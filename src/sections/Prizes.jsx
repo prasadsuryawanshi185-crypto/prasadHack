@@ -114,12 +114,6 @@ export function Prizes() {
 
   return (
     <section id="prizes" aria-label="Prizes and Rewards" className="relative py-28 sm:py-36 overflow-hidden">
-      {/* Background glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(45,183,255,0.08),transparent_70%)] blur-3xl"
-      />
-
       <div className="container-custom relative z-10">
         <SectionHeading
           index="SEC // 04"
@@ -133,7 +127,7 @@ export function Prizes() {
         {/* Prize Pool Highlight Hero Banner */}
         <Reveal>
           <div className="relative max-w-3xl mx-auto mb-14 text-center rounded-2xl p-8 sm:p-10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/15 backdrop-blur-xl shadow-2xl shadow-black/60 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(31,224,160,0.15),transparent_60%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#1fe0a0]/10 via-transparent to-transparent" />
             
             <div className="relative z-10">
               <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#1fe0a0] block mb-2">
@@ -214,7 +208,7 @@ export function Prizes() {
             {/* 1st Place (Featured & Larger) */}
             <div className="order-1 md:order-2">
               <div className="relative rounded-2xl bg-gradient-to-b from-[#151833] to-[#0c0d1c] border-2 border-[#1fe0a0]/60 p-7 sm:p-9 text-center shadow-2xl shadow-[#1fe0a0]/20 transform md:-translate-y-2">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] text-black font-mono text-[10px] font-bold uppercase tracking-wider shadow-md">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#2db7ff] to-[#1fe0a0] text-black font-mono text-xs font-bold uppercase tracking-wider shadow-md">
                   CHAMPION
                 </div>
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 mb-4 font-mono font-bold text-base shadow-[0_0_25px_rgba(251,191,36,0.3)]">
@@ -287,10 +281,10 @@ export function Prizes() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-mono text-[10px] text-[#8E89AA] uppercase tracking-wider">
+                      <span className="font-mono text-xs text-[#8E89AA] uppercase tracking-wider font-medium">
                         {award.track}
                       </span>
-                      <span className="font-mono text-[10px] text-[#1fe0a0] uppercase tracking-wider group-hover:underline">
+                      <span className="font-mono text-xs text-[#1fe0a0] uppercase tracking-wider group-hover:underline font-semibold">
                         View Criteria →
                       </span>
                     </div>

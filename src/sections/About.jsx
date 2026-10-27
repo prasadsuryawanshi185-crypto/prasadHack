@@ -17,12 +17,6 @@ export function About() {
       aria-label="About WCE Hackathon 2027"
       className="relative py-28 sm:py-36 overflow-hidden bg-[#070814]"
     >
-      {/* Background ambient lighting */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(45,183,255,0.06)_0%,transparent_70%)] blur-3xl"
-      />
-
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Narrative */}
@@ -62,7 +56,7 @@ export function About() {
                   </div>
                   <div className="font-mono text-xs">
                     <div className="text-white font-bold">WCE SANGLI</div>
-                    <div className="text-[#8E89AA] text-[10px]">ESTABLISHED 1947</div>
+                    <div className="text-[#8E89AA] text-xs font-medium">ESTABLISHED 1947</div>
                   </div>
                 </div>
 
@@ -72,7 +66,7 @@ export function About() {
                   </div>
                   <div className="font-mono text-xs">
                     <div className="text-white font-bold">WCE ACM SC</div>
-                    <div className="text-[#8E89AA] text-[10px]">CHARTERED 2016</div>
+                    <div className="text-[#8E89AA] text-xs font-medium">CHARTERED 2016</div>
                   </div>
                 </div>
               </div>
@@ -91,10 +85,10 @@ export function About() {
                       <div className="font-display font-extrabold text-3xl sm:text-5xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2db7ff] group-hover:to-[#1fe0a0] transition-colors leading-none">
                         {s.value}
                       </div>
-                      <div className="font-mono text-[11px] text-[#1fe0a0] tracking-wider uppercase mt-2 font-bold">
+                      <div className="font-mono text-xs text-[#1fe0a0] tracking-wider uppercase mt-2 font-bold">
                         {s.unit}
                       </div>
-                      <div className="text-xs text-[#8E89AA] leading-relaxed mt-3">
+                      <div className="text-xs sm:text-sm text-[#c7cfd9] leading-relaxed mt-3">
                         {s.label}
                       </div>
                     </div>

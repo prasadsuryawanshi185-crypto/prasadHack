@@ -559,6 +559,11 @@ export const eventData = {
       answer: "WCE Hackathon is a premier 24-hour national-level offline hackathon organized by the WCE ACM Student Chapter at Walchand College of Engineering, Sangli under the national-level VISION technical symposium. Student teams collaborate on-campus to design and build technology-driven solutions for real-world challenges.",
     },
     {
+      category: "general",
+      question: "What is the duration of the hackathon?",
+      answer: "The hackathon runs for 24 continuous hours on campus, packed with non-stop coding, architecture reviews, mentor checkpoints, and final stage demos.",
+    },
+    {
       category: "eligibility",
       question: "Who is eligible to participate?",
       answer: "Undergraduate students from all engineering colleges, years, and disciplines are eligible to participate. Cross-college and interdisciplinary teams are actively welcomed.",
@@ -579,9 +584,14 @@ export const eventData = {
       answer: "Each team must consist of a minimum of 2 members and a maximum of 4 members.",
     },
     {
+      category: "teams",
+      question: "Can students from different colleges form a team?",
+      answer: "Yes! Cross-college and cross-institutional team members are completely permitted and encouraged to collaborate.",
+    },
+    {
       category: "fees",
       question: "Is there any registration or participation fee?",
-      answer: "Round 1 (abstract submission on Unstop) is completely FREE for all participants. Teams that are shortlisted for the offline 24-hour hackathon at WCE Sangli are required to pay a nominal confirmation fee of ₹400 per team to cover logisitics, badges, and hospitality kits.",
+      answer: "Round 1 (abstract submission on Unstop) is completely FREE for all participants. Teams that are shortlisted for the offline 24-hour hackathon at WCE Sangli are required to pay a nominal confirmation fee of ₹400 per team to cover logistics, badges, and hospitality kits.",
     },
     {
       category: "logistics",
@@ -590,8 +600,13 @@ export const eventData = {
     },
     {
       category: "logistics",
-      question: "Will food and stay facilities be provided during the hackathon?",
-      answer: "Yes! High-energy meals, midnight snacks, tea, and beverages will be provided to all verified offline participants throughout the 24-hour sprint. Resting areas are also arranged on campus.",
+      question: "Will food facilities and refreshments be provided?",
+      answer: "Yes, nutritious meals, midnight refreshments, tea, and beverages will be provided to all verified participants throughout the 24-hour sprint.",
+    },
+    {
+      category: "logistics",
+      question: "Will accommodation or resting facilities be available on campus?",
+      answer: "Yes. Designated on-campus resting spaces and facilities are arranged for all verified outstation and local participants during the overnight duration of the hackathon.",
     },
     {
       category: "general",
@@ -599,9 +614,19 @@ export const eventData = {
       answer: "That is completely fine! The Novice Track is specifically created for first-time hackers, featuring active mentor check-ins, workshops, and supportive judging criteria.",
     },
     {
+      category: "general",
+      question: "Will there be prizes and certificates for winners and participants?",
+      answer: "Yes! There is a prize pool exceeding ₹1,00,000 including cash bounties, prestigious champion trophies, direct industry internship interview opportunities, and official national certificates under the VISION symposium for all active participants.",
+    },
+    {
       category: "rules",
       question: "Can we use pre-existing code?",
       answer: "All core application logic must be developed during the 24-hour sprint. You are free to use open-source libraries, frameworks, APIs, and boilerplate setups. Git commit histories will be audited during mentor checkpoints to verify authentic progress.",
+    },
+    {
+      category: "general",
+      question: "Who can I contact for queries?",
+      answer: "For any queries, reach out to our student coordinators: Afnan Sayyad (Chairperson: +91 84590 39945), Siddhi Varma (Co-Chairperson: +91 80105 96040), or Sanika Pawar (Secretary: +91 75587 80903), or email us at wceacmsc@gmail.com.",
     },
   ],
 };
